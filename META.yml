@@ -1,0 +1,32 @@
+---
+abstract: "Home sweet home\r"
+author:
+  - 'G. Casati <fibo@cpan.org>'
+build_requires:
+  Test::Moose: 0
+  Test::More: 0
+  Test::use::ok: 0
+  ok: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.120921'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Sweet-Home
+requires:
+  File::Copy: 0
+  File::Path: 0
+  File::Remove: 0
+  File::Spec: 0
+  File::Touch: 0
+  Moose: 0
+  MooseX::StrictConstructor: 0
+  MooseX::Types::Path::Class: 0
+  Try::Tiny: 0
+  namespace::autoclean: 0
+  strict: 0
+  warnings: 0
+version: 20131029

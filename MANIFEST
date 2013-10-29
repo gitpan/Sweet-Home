@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST
+META.yml
+Makefile.PL
+README
+TODO
+dist.ini
+lib/Sweet/Dir.pm
+lib/Sweet/File.pm
+lib/Sweet/Home.pm
+lib/Sweet/Home/Config.pm
+lib/Sweet/HomeDir.pm
+lib/Sweet/Path.pm
+t/dir.t
+t/empty_file
+t/file.t
