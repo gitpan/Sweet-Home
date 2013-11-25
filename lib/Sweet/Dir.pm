@@ -1,6 +1,6 @@
 package Sweet::Dir;
 {
-  $Sweet::Dir::VERSION = '20131029';
+  $Sweet::Dir::VERSION = '20131125';
 }
 use Moose;
 use namespace::autoclean;

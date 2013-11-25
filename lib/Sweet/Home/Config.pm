@@ -1,6 +1,6 @@
 package Sweet::Home::Config;
 {
-  $Sweet::Home::Config::VERSION = '20131029';
+  $Sweet::Home::Config::VERSION = '20131125';
 }
 use Moose;
 use MooseX::StrictConstructor;

@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Sweet::Home;
 {
-  $Sweet::Home::VERSION = '20131029';
+  $Sweet::Home::VERSION = '20131125';
 }
 # ABSTRACT: Home sweet home
 

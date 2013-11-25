@@ -1,6 +1,6 @@
 package Sweet::HomeDir;
 {
-  $Sweet::HomeDir::VERSION = '20131029';
+  $Sweet::HomeDir::VERSION = '20131125';
 }
 use Moose;
 use MooseX::StrictConstructor;
