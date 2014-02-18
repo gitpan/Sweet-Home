@@ -1,7 +1,5 @@
 package Sweet::Dir;
-{
-  $Sweet::Dir::VERSION = '20131125';
-}
+$Sweet::Dir::VERSION = '20140218';
 use Moose;
 use namespace::autoclean;
 use MooseX::StrictConstructor;
@@ -13,12 +11,6 @@ use File::Path qw(make_path remove_tree);
 
 use Sweet::File;
 
-=head1 SYNOPSIS
-
-    my $dir = Sweet::Dir->new(path => '/path/to/dir');
-    $dir->create;
-
-=cut
 
 has 'path' => (
     builder  => '_build_path',
@@ -90,3 +82,34 @@ __PACKAGE__->meta->make_immutable;
 
 1;
 
+__END__
+
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Sweet::Dir
+
+=head1 VERSION
+
+version 20140218
+
+=head1 SYNOPSIS
+
+    my $dir = Sweet::Dir->new(path => '/path/to/dir');
+    $dir->create;
+
+=head1 AUTHOR
+
+G. Casati <fibo@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by G. Casati.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut

@@ -1,5 +1,5 @@
 ---
-abstract: "Home sweet home\r"
+abstract: "HomeDir, File, Path and other sweet classes\r"
 author:
   - 'G. Casati <fibo@cpan.org>'
 build_requires:
@@ -10,7 +10,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Dist::Zilla version 5.013, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -29,4 +29,4 @@ requires:
   namespace::autoclean: 0
   strict: 0
   warnings: 0
-version: 20131125
+version: 20140218
