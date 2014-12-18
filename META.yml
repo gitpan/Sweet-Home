@@ -1,32 +1,38 @@
 ---
-abstract: "HomeDir, File, Path and other sweet classes\r"
+abstract: 'Dir, File, HomeDir, and other sweet classes'
 author:
   - 'G. Casati <fibo@cpan.org>'
 build_requires:
-  Test::Moose: 0
-  Test::More: 0
-  Test::use::ok: 0
-  ok: 0
+  ExtUtils::MakeMaker: '6.64'
+  Test::Compile: v1.2.1
+  Test::More: '1.001009'
+  Test::Pod: '1.48'
 configure_requires:
-  ExtUtils::MakeMaker: 6.30
-dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.013, CPAN::Meta::Converter version 2.120921'
-license: perl
+  ExtUtils::MakeMaker: '0'
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.143240'
+license: artistic_2
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: Sweet-Home
+no_index:
+  directory:
+    - t
+    - inc
 requires:
-  File::Copy: 0
-  File::Path: 0
-  File::Remove: 0
-  File::Spec: 0
-  File::Touch: 0
-  Moose: 0
-  MooseX::StrictConstructor: 0
-  MooseX::Types::Path::Class: 0
-  Try::Tiny: 0
-  namespace::autoclean: 0
-  strict: 0
-  warnings: 0
-version: 20140218
+  File::Basename: '2.71'
+  File::Copy: '2.05'
+  File::HomeDir: '1'
+  File::Path: '1.05'
+  File::Remove: '1.52'
+  File::Spec: '3.47'
+  Moose: '2.1403'
+  MooseX::Types::Path::Class: '0.06'
+  perl: '5.008000'
+resources:
+  bugtracker: https://github.com/fibo/Sweet-Home-pm/issues
+  homepage: https://metacpan.org/pod/Sweet::Home
+  license: http://g14n.info/artistic-license
+  repository: https://github.com/fibo/Sweet-Home-pm
+version: '0.1'

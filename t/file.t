@@ -2,35 +2,9 @@ use strict;
 use warnings;
 use Sweet::Dir;
 use Test::More;
-use Test::Moose;
-use Test::use::ok;
+use File::Spec::Functions;
 
-use ok 'Sweet::File';
-
-my $class = 'Sweet::File';
-
-my @attributes = qw(
-  dir
-  name
-  path
-);
-
-#TODO  create move_to_dir
-my @methods = qw(
-  copy_to_dir
-  does_not_exists
-  erase
-  has_zero_size
-  is_a_plain_file
-  is_executable
-  is_writable
-);
-
-can_ok( $class, $_ ) for @methods;
-
-has_attribute_ok( $class, $_ ) for @attributes;
-
-meta_ok $class;
+use Sweet::File;
 
 my $test_dir = Sweet::Dir->new( path => 't' );
 
@@ -38,8 +12,14 @@ my $file = Sweet::File->new( name => 'file.t', dir => $test_dir );
 ok $file->is_a_plain_file;
 ok $file->is_writable;
 
+is "$file", catfile( 't', 'file.t' ), 'stringify to path';
+
+is $file->path, catfile( 't', 'file.t' ), 'path';
+is $file->ext, 't', 'path';
+
 my $file_touched = Sweet::File->new( name => 'file_touched', dir => $test_dir );
 ok $file_touched->does_not_exists, 'touched file does not exists yet';
+
 # TODO ok $file_touched->create,          'touch file';
 #ok $file_touched->is_a_plain_file, 'touched filed exists';
 #$file_touched->erase;

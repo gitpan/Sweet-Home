@@ -1,33 +1,48 @@
 package Sweet::File;
-$Sweet::File::VERSION = '20140218';
 use Moose;
-use MooseX::StrictConstructor;
 
 use Try::Tiny;
 
+use File::Basename;
 use File::Copy;
-use File::Spec;
-use File::Touch;
 use File::Remove 'remove';
+use File::Spec;
+
 use MooseX::Types::Path::Class;
 
-has dir => (
+has 'dir' => (
     builder   => '_build_dir',
-    is        => 'rw',
+    is        => 'ro',
     isa       => 'Sweet::Dir',
     lazy      => 1,
     predicate => 'has_dir',
 );
 
-has name => (
+has 'name' => (
     builder   => '_build_name',
-    is        => 'rw',
+    is        => 'ro',
     isa       => 'Str',
     lazy      => 1,
     predicate => 'has_name',
 );
 
-has path => (
+has 'ext' => (
+    default => sub {
+        my $self = shift;
+
+        my $path = $self->path;
+
+        my ( $filename, $dirname, $suffix ) = fileparse( $path, qr/[^.]*$/ );
+
+        return $suffix;
+    },
+    is        => 'ro',
+    isa       => 'Str',
+    lazy      => 1,
+    predicate => 'has_ext',
+);
+
+has 'path' => (
     builder => '_build_path',
     coerce  => 1,
     is      => 'rw',
@@ -48,27 +63,10 @@ sub _build_path {
     return $path;
 }
 
-#TODO create
-#sub create {
-#    my $self = shift;
-#
-#    my $path = $self->path;
-#
-#    print $path, "\n";
-#
-#    try {
-#        touch($path);
-#    }
-#    catch {
-#        warn $_;
-#    };
-#}
-
 sub copy_to_dir {
     my $self = shift;
 
-    my $dir = shift;
-
+    my $dir  = shift;
     my $name = $self->name;
 
     my $file_copied = try {
@@ -115,29 +113,19 @@ sub copy_to_dir {
 #
 #}
 
-sub does_not_exists {
-    return !-e shift->path;
-}
+sub does_not_exists { !-e shift->path }
 
-sub erase {
-    remove( shift->path );
-}
+sub erase { remove( shift->path ) }
 
-sub has_zero_size {
-    return -z shift->path;
-}
+sub has_zero_size { -z shift->path }
 
-sub is_a_plain_file {
-    return -f shift->path;
-}
+sub is_a_plain_file { -f shift->path }
 
-sub is_executable {
-    return -x shift->path;
-}
+sub is_executable { -x shift->path }
 
-sub is_writable {
-    return -w shift->path;
-}
+sub is_writable { -w shift->path }
+
+use overload q("") => sub { shift->path };
 
 __PACKAGE__->meta->make_immutable;
 
@@ -145,27 +133,20 @@ __PACKAGE__->meta->make_immutable;
 
 __END__
 
-=pod
-
-=encoding UTF-8
+=encoding utf8
 
 =head1 NAME
 
 Sweet::File
 
-=head1 VERSION
+=head1 SYNOPSIS
 
-version 20140218
+    use Sweet::File;
 
-=head1 AUTHOR
-
-G. Casati <fibo@cpan.org>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2013 by G. Casati.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
+    my $file = Sweet::File->new(
+        dir => '/path/to/dir',
+        name => 'foo',
+    );
 
 =cut
+
